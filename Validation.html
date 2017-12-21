@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Java Script Validation</title>
+	<script type="text/javascript">
+			function validateme(){
+
+				if (myform.email.value=="") {
+					alert("Email cannot be blank");
+					myform.email.focus();
+					return false;
+				}
+
+
+		var filter=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9\-])+\.([A-Za-z]{2,4})$/;
+			if (filter.test(myform.email.value)==false) {
+				alert("Invalid email");
+				return false;
+			}
+
+
+
+			return true;
+
+			}
+
+
+
+
+	</script>
+</head>
+<body>
+	<form name="myform" onsubmit="" action="welcome.html">
+		Email: <input type="text" name="email">
+		<input type="submit" name="submit" onclick="return validateme();" value="submit"> 
+
+	</form>
+
+</body>
+</html>
