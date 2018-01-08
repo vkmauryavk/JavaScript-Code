@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h2>The XMLHttpRequest Object</h2>
+<button type="button"   id="ajax-button" >Change Content</button>
+</div>
+
+<script>
+
+function replaceText(){
+
+ 
+var xhr=new XMLHttpRequest();
+xhr.open("GET","ajax_info.txt",true);
+
+xhr.onreadystatechange=function(){
+
+if(xhr.readyState==4&& xhr.status==200){
+var target=document.getElementById("demo");
+target.innerHTML=xhr.responseText;
+
+}}
+
+xhr.send();
+}
+
+var button=document.getElementById("ajax-button");
+button.addEventListener("click", replaceText);
+
+</script>
+
+</body>
+</html>
