@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+        html{
+                position: relative;
+        }
+	.panel{
+		background-color: orange;
+		border-radius: 5px;
+	} 
+        .footer {
+        background-color: orange;
+        padding: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    #name_error,#email_error,#password_error,#repassword_error{
+    	color:red;
+    }
+   .btn{
+        width: 100%;
+                
+        }
+</style>
+<script type="text/javascript">
+	
+
+function validate_name(){
+			var name=document.forms["myform"]["name"].value;
+			var name_length=name.length;
+				if (name.length==0) {
+			
+					document.getElementById('name_error').innerHTML="Name can not be blank";		return false;
+				}
+				else if (name_length<3) {
+					document.getElementById('name_error').innerHTML="Name can not be less then 3 char";		
+					return false;
+				}
+				else{
+					document.getElementById('name_error').innerHTML="";
+							return false;
+				}}
+
+		function validate_email(){
+			var email=document.forms["myform"]["email"].value;
+			var check_email=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9\-])+\.([A-Za-z]{2,4})$/;
+				if (email.length==0) {
+			
+				document.getElementById('email_error').innerHTML="email can not be blank";		return false;
+				}
+				else if(check_email.test(email)==false)
+				{
+					
+					document.getElementById('email_error').innerHTML="Invalid Email address";
+					return false;
+				}
+				else{
+					document.getElementById('email_error').innerHTML="";
+							return false;
+			}}
+
+			function validate_password(){
+				var password=document.forms["myform"]["password"].value;
+				var repassword=document.forms["myform"]["repassword"].value;
+
+				if (password.length==0) {
+					document.getElementById("password_error").innerHTML="password can not be blank";
+				}
+			
+				else {
+					document.getElementById("password_error").innerHTML="";
+				}
+			}
+
+			function validate_repassword(){
+				var password=document.forms["myform"]["password"].value;
+				var repassword=document.forms["myform"]["repassword"].value;
+
+				if (repassword.length==0) {
+					document.getElementById("repassword_error").innerHTML="Re Enter the password";
+				}
+				else if(password!=repassword){
+					document.getElementById("repassword_error").innerHTML="password does not match";
+				}
+			
+				else {
+					document.getElementById("repassword_error").innerHTML="";
+				}
+			}
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="page-header">
+	<img src="mphasis.png" class="center-block" style="width:300px "> 
+	</div>
+	<div class="col-xs-4">
+	</div>
+	<div class="col-xs-4">
+	<form action="/registeration"  name="myform" method="post">
+	        
+		<div class="panel">
+			<div class="panel-heading">
+				<h2>Sign Up Here</h2>
+			</div>
+			<div class="panel-body">
+				
+				<div class="form-group">
+					<label>Name :</label>
+					<input type="text" name="name" id="name" placeholder="Enter Name" class="form-control" onblur="validate_name()"> <span id="name_error"></span>
+				</div>
+
+				<div class="form-group">
+					<label>Email :</label>
+					<input type="text"  name="email" id="email" class="form-control" placeholder="Enter Email" onblur="validate_email()"><span id="email_error"></span>
+				</div>
+
+				<div class="form-group">
+					<label>Password :</label>
+					<input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" onblur="validate_password()"><span id="password_error"></span>
+				</div>
+
+
+				<div class="form-group">
+					<label>Re-type Password :</label>
+					<input type="password" name="repassword" id="repassword" placeholder="Re-Enter Password" class="form-control" onblur="validate_repassword()"><span id="repassword_error"></span>
+				</div>
+				
+				<div class="form-group">
+					<label>Pin :</label>
+					<input type="password" maxlength="4" name="pin" id="pin" class="form-control" placeholder="Enter 4 digit pin">
+				</div>
+				
+				<div class="form-group">
+					<input type="submit" name="submit" class="btn btn-primary">
+					
+				</div>
+
+
+
+
+			</div>
+	</form>
+		</div>
+	</div>
+	<div class="col-xs-4">
+	</div>
+	
+	
+	
+	
+	
+</div>
+	<div class="footer">
+<div class="container-fluid">
+ 	        <p> <center>@copyright</center> </p>
+       
+</div>	
+</div>
+
+</body>
+</html>n
